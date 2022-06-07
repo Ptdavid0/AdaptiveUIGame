@@ -3,14 +3,13 @@ import {
   Image,
   Text,
   StyleSheet,
-  Dimensions,
   ScrollView,
   useWindowDimensions,
 } from "react-native";
 
 import Title from "../components/ui/Title";
 import PrimaryButton from "../components/ui/PrimaryButton";
-import Colors from "../constants/colors";
+import Colors from "../constants/colors.ios";
 
 function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
   const { width, height } = useWindowDimensions();
@@ -31,7 +30,7 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
     borderRadius: imageSize / 2,
   };
   return (
-    <ScrollView>
+    <ScrollView style={styles.screen}>
       <View style={styles.rootContainer}>
         <Title>GAME OVER!</Title>
         <View style={[styles.imageContainer, imageStyle]}>
@@ -61,6 +60,9 @@ const styles = StyleSheet.create({
     padding: 24,
     justifyContent: "center",
     alignItems: "center",
+  },
+  screen: {
+    flex: 1,
   },
   imageContainer: {
     borderWidth: 3,
